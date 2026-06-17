@@ -50,7 +50,7 @@ const resources = {
         card3Desc: "Nuestra plataforma optimiza tu currículum de forma automatizada garantizando procesos ciegos y libres de sesgos."
       },
       footer: {
-        desc: "El portal de empleo tecnológico líder enfocado en diversidad, equidad, inclusión y accesibilidad laboral.",
+
         candidates: "Para Candidatos",
         companies: "Para Empresas",
         community: "Comunidad",
@@ -67,7 +67,7 @@ const resources = {
         com3: "Políticas de Privacidad",
         com4: "Soporte y Contacto",
         rights: "© 2026 DiversoJob. Todos los derechos reservados.",
-        madeWith: "Hecho con ♥ para promover oportunidades laborales justas."
+
       },
       modal: {
         jobDescription: "Descripción del Puesto",
@@ -124,7 +124,7 @@ const resources = {
         card3Desc: "Our platform automatically optimizes your resume, ensuring blind and bias-free selection processes."
       },
       footer: {
-        desc: "The leading tech job portal focused on diversity, equity, inclusion, and workplace accessibility.",
+       
         candidates: "For Candidates",
         companies: "For Companies",
         community: "Community",
@@ -141,7 +141,7 @@ const resources = {
         com3: "Privacy Policies",
         com4: "Support & Contact",
         rights: "© 2026 DiversoJob. All rights reserved.",
-        madeWith: "Made with ♥ to promote fair job opportunities."
+
       },
       modal: {
         jobDescription: "Job Description",
