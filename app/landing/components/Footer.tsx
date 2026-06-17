@@ -3,6 +3,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import "@/lib/i18n";
+import Image from "next/image";
+import Logo from "@/public/DiversoJob.png";
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -13,31 +15,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <svg className="h-7 w-auto" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M 50 25 C 33 10, 15 10, 15 25 C 15 40, 33 40, 50 25 C 67 10, 85 10, 85 25 C 85 40, 67 40, 50 25 Z"
-                  stroke="url(#logoGradient)"
-                  strokeWidth="8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-                <defs>
-                  <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#0a59a3" />
-                    <stop offset="100%" stopColor="#0da845" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              <span className="text-lg font-bold tracking-tight text-slate-800">
-                <span className="text-[#0a59a3]">Diverso</span>
-                <span className="text-[#0da845]">Job</span>
-              </span>
-            </div>
-            <p className="text-xs text-gray-400 leading-relaxed">
-              {t("footer.desc")}
-            </p>
-          </div>
+              <Image src={Logo} alt="DiversoJob Logo" width={100} height={50} />
+
+           </div>
+           </div>
           <div>
             <h4 className="text-xs font-bold text-gray-800 uppercase tracking-wider mb-4">{t("footer.candidates")}</h4>
             <ul className="flex flex-col gap-2.5 text-xs text-gray-500">
