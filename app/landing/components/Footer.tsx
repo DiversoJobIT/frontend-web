@@ -1,0 +1,78 @@
+"use client";
+
+import React from "react";
+import { useTranslation } from "react-i18next";
+import "@/lib/i18n";
+
+export default function Footer() {
+  const { t } = useTranslation();
+
+  return (
+    <footer className="bg-white border-t border-gray-100 py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-3">
+              <svg className="h-7 w-auto" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M 50 25 C 33 10, 15 10, 15 25 C 15 40, 33 40, 50 25 C 67 10, 85 10, 85 25 C 85 40, 67 40, 50 25 Z"
+                  stroke="url(#logoGradient)"
+                  strokeWidth="8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+                <defs>
+                  <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#0a59a3" />
+                    <stop offset="100%" stopColor="#0da845" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <span className="text-lg font-bold tracking-tight text-slate-800">
+                <span className="text-[#0a59a3]">Diverso</span>
+                <span className="text-[#0da845]">Job</span>
+              </span>
+            </div>
+            <p className="text-xs text-gray-400 leading-relaxed">
+              {t("footer.desc")}
+            </p>
+          </div>
+          <div>
+            <h4 className="text-xs font-bold text-gray-800 uppercase tracking-wider mb-4">{t("footer.candidates")}</h4>
+            <ul className="flex flex-col gap-2.5 text-xs text-gray-500">
+              <li><a href="#" className="hover:text-[#0a59a3]">{t("footer.c1")}</a></li>
+              <li><a href="#" className="hover:text-[#0a59a3]">{t("footer.c2")}</a></li>
+              <li><a href="#" className="hover:text-[#0a59a3]">{t("footer.c3")}</a></li>
+              <li><a href="#" className="hover:text-[#0a59a3]">{t("footer.c4")}</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-xs font-bold text-gray-800 uppercase tracking-wider mb-4">{t("footer.companies")}</h4>
+            <ul className="flex flex-col gap-2.5 text-xs text-gray-500">
+              <li><a href="#" className="hover:text-[#0a59a3]">{t("footer.co1")}</a></li>
+              <li><a href="#" className="hover:text-[#0a59a3]">{t("footer.co2")}</a></li>
+              <li><a href="#" className="hover:text-[#0a59a3]">{t("footer.co3")}</a></li>
+              <li><a href="#" className="hover:text-[#0a59a3]">{t("footer.co4")}</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-xs font-bold text-gray-800 uppercase tracking-wider mb-4">{t("footer.community")}</h4>
+            <ul className="flex flex-col gap-2.5 text-xs text-gray-500">
+              <li><a href="#" className="hover:text-[#0a59a3]">{t("footer.com1")}</a></li>
+              <li><a href="#" className="hover:text-[#0a59a3]">{t("footer.com2")}</a></li>
+              <li><a href="#" className="hover:text-[#0a59a3]">{t("footer.com3")}</a></li>
+              <li><a href="#" className="hover:text-[#0a59a3]">{t("footer.com4")}</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="border-t border-gray-100 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+          <p>{t("footer.rights")}</p>
+          <p className="flex items-center gap-1 text-slate-300">
+            {t("footer.madeWith")}
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
