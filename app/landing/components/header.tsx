@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronDown, Lock, PlusCircle, Menu, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import "@/lib/i18n"; // ensure initialized
 
@@ -96,13 +97,13 @@ export default function Header() {
             </div>
             {t("nav.registroEmpresa")}
           </a>
-          <a
-            href="#"
+          <Link
+            href="/register"
             className="flex items-center gap-2 rounded-xl bg-[#0a59a3] px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#004b8d] hover:shadow-md"
           >
             <PlusCircle className="size-4" />
             {t("nav.registro")}
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Icon & Mobile Lang Selector */}
@@ -147,10 +148,10 @@ export default function Header() {
               <Lock className="size-4" />
               {t("nav.registroEmpresa")}
             </a>
-            <a href="#" className="flex items-center justify-center gap-2 rounded-xl bg-[#0a59a3] py-2.5 text-base font-semibold text-white">
+            <Link href="/register" className="flex items-center justify-center gap-2 rounded-xl bg-[#0a59a3] py-2.5 text-base font-semibold text-white">
               <PlusCircle className="size-4" />
               {t("nav.registro")}
-            </a>
+            </Link>
           </nav>
         </div>
       )}
