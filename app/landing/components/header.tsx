@@ -88,17 +88,17 @@ export default function Header() {
             )}
           </div>
 
-          <a
-            href="#"
+          <Link
+            href="/register-login?tab=login"
             className="flex items-center gap-2 text-sm font-semibold text-gray-700 transition-colors hover:text-[#0a59a3]"
           >
             <div className="rounded-full bg-slate-100 p-1.5 text-gray-600">
               <Lock className="size-4" />
             </div>
             {t("nav.registroEmpresa")}
-          </a>
+          </Link>
           <Link
-            href="/register"
+            href="/register-login?tab=register"
             className="flex items-center gap-2 rounded-xl bg-[#0a59a3] px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#004b8d] hover:shadow-md"
           >
             <PlusCircle className="size-4" />
@@ -144,11 +144,11 @@ export default function Header() {
               {t("nav.blog")}
             </a>
             <div className="my-2 h-px bg-gray-100" />
-            <a href="#" className="flex items-center gap-2 py-2 text-base font-semibold text-gray-700 hover:text-[#0a59a3]">
+            <Link href="/register-login?tab=login" className="flex items-center gap-2 py-2 text-base font-semibold text-gray-700 hover:text-[#0a59a3]">
               <Lock className="size-4" />
               {t("nav.registroEmpresa")}
-            </a>
-            <Link href="/register" className="flex items-center justify-center gap-2 rounded-xl bg-[#0a59a3] py-2.5 text-base font-semibold text-white">
+            </Link>
+            <Link href="/register-login?tab=register" className="flex items-center justify-center gap-2 rounded-xl bg-[#0a59a3] py-2.5 text-base font-semibold text-white">
               <PlusCircle className="size-4" />
               {t("nav.registro")}
             </Link>
