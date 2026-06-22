@@ -37,19 +37,7 @@ export function LoginActionsSection({
         Iniciar Sesión
       </Button>
 
-      {/* Switch to Register */}
-      <div className="text-center pt-2">
-        <p className="text-sm text-gray-500">
-          ¿No tienes una cuenta?{" "}
-          <button
-            type="button"
-            onClick={onSwitchToRegister}
-            className="text-[#0a59a3] hover:text-[#004b8d] hover:underline font-bold transition-colors cursor-pointer"
-          >
-            Regístrate aquí
-          </button>
-        </p>
-      </div>
+
     </div>
   );
 }
