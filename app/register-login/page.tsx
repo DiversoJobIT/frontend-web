@@ -49,7 +49,7 @@ function RegisterLoginForm() {
               className={`relative z-10 flex-1 text-center py-3 text-sm font-bold rounded-xl transition-colors duration-300 cursor-pointer ${
                 activeTab === "register"
                   ? "text-[#0a59a3]"
-                  : "text-gray-500 hover:text-gray-800"
+                  : "text-gray-600 hover:text-gray-900"
               }`}
             >
               Registro
@@ -60,7 +60,7 @@ function RegisterLoginForm() {
               className={`relative z-10 flex-1 text-center py-3 text-sm font-bold rounded-xl transition-colors duration-300 cursor-pointer ${
                 activeTab === "login"
                   ? "text-[#0a59a3]"
-                  : "text-gray-500 hover:text-gray-800"
+                  : "text-gray-600 hover:text-gray-900"
               }`}
             >
               Iniciar Sesión
@@ -69,7 +69,7 @@ function RegisterLoginForm() {
 
           {/* Formulario Dinámico según Pestaña */}
           {activeTab === "register" ? (
-            <RegisterSection onSwitchToLogin={() => handleTabChange("login")} />
+            <RegisterSection />
           ) : (
             <LoginSection onSwitchToRegister={() => handleTabChange("register")} />
           )}
@@ -77,7 +77,7 @@ function RegisterLoginForm() {
 
         {/* Enlace inferior de alternancia rápida */}
         <div className="text-center mt-6">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-600">
             {activeTab === "register" ? (
               <>
                 ¿Ya tienes cuenta?{" "}
