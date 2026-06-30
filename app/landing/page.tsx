@@ -1,16 +1,16 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { ChevronDown, MapPin, Briefcase, DollarSign, Calendar, X, ArrowRight, CheckCircle, Building2 } from "lucide-react";
+import React, { useState, useMemo } from "react";
+import { MapPin, Briefcase, DollarSign, Calendar, X, ArrowRight, CheckCircle, Building2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import "@/lib/i18n";
 
 import Header from "./components/header";
 import Hero from "./components/Hero";
-import Features from "./components/Features";
 import Footer from "./components/Footer";
 import HowItWorks from "./components/HowItWorks";
 import Blog from "./components/Blog";
+import Companies from "./components/Companies";
 
 // Mock Jobs Database for interactive search functionality
 const MOCK_JOBS = [
@@ -130,18 +130,15 @@ export default function LandingPage() {
   const [searchJob, setSearchJob] = useState("");
   const [searchWhere, setSearchWhere] = useState("");
   const [searchCategory, setSearchCategory] = useState("");
-  const [filteredJobs, setFilteredJobs] = useState(MOCK_JOBS);
   const [activeTab, setActiveTab] = useState<"all" | "featured">("all");
 
   // Selected Job for Detailed Modal
   const [selectedJob, setSelectedJob] = useState<typeof MOCK_JOBS[0] | null>(null);
   const [showSuccessToast, setShowSuccessToast] = useState(false);
 
-  // Handle Job Search
-  const handleSearch = (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
-
-    const results = MOCK_JOBS.filter((job) => {
+  // Derived filtered jobs - updates automatically when search params change
+  const filteredJobs = useMemo(() => {
+    return MOCK_JOBS.filter((job) => {
       const matchQuery =
         !searchJob ||
         job.title.toLowerCase().includes(searchJob.toLowerCase()) ||
@@ -160,21 +157,18 @@ export default function LandingPage() {
 
       return matchQuery && matchLocation && matchCategory && matchTab;
     });
+  }, [searchJob, searchWhere, searchCategory, activeTab]);
 
-    setFilteredJobs(results);
+  // Handle Job Search
+  const handleSearch = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
   };
-
-  // Trigger search when active tab changes
-  useEffect(() => {
-    handleSearch();
-  }, [activeTab]);
 
   // Reset Filters
   const handleResetFilters = () => {
     setSearchJob("");
     setSearchWhere("");
     setSearchCategory("");
-    setFilteredJobs(MOCK_JOBS);
     setActiveTab("all");
   };
 
@@ -193,7 +187,7 @@ export default function LandingPage() {
       <Header />
 
       {/* MAIN LANDING CONTAINER */}
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         {/* HERO COMPONENT */}
         <Hero
           searchJob={searchJob}
@@ -213,7 +207,7 @@ export default function LandingPage() {
               <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
                 {t("jobs.heading")}
               </h2>
-              <p className="mt-2 text-sm text-gray-500 max-w-2xl">
+              <p className="mt-2 text-sm text-gray-600 max-w-2xl">
                 {t("jobs.subheading")}
               </p>
             </div>
@@ -222,7 +216,7 @@ export default function LandingPage() {
             <div className="flex items-center gap-2 mt-4 md:mt-0 bg-white border border-gray-100 p-1 rounded-xl shadow-sm">
               <button
                 onClick={() => setActiveTab("all")}
-                className={`px-4 py-2 text-xs font-semibold rounded-lg transition-all ${
+                className={`px-4 py-2 text-xs font-semibold rounded-lg transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0a59a3] focus-visible:ring-offset-2 ${
                   activeTab === "all"
                     ? "bg-[#0a59a3] text-white shadow-sm"
                     : "text-gray-600 hover:text-[#0a59a3] hover:bg-slate-50"
@@ -232,7 +226,7 @@ export default function LandingPage() {
               </button>
               <button
                 onClick={() => setActiveTab("featured")}
-                className={`px-4 py-2 text-xs font-semibold rounded-lg transition-all ${
+                className={`px-4 py-2 text-xs font-semibold rounded-lg transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0a59a3] focus-visible:ring-offset-2 ${
                   activeTab === "featured"
                     ? "bg-[#0a59a3] text-white shadow-sm"
                     : "text-gray-600 hover:text-[#0a59a3] hover:bg-slate-50"
@@ -246,34 +240,34 @@ export default function LandingPage() {
           {/* Active Search Summary */}
           {(searchJob || searchWhere || searchCategory) && (
             <div className="flex flex-wrap items-center gap-2 mb-6">
-              <span className="text-xs font-medium text-gray-500">Filtros activos:</span>
+              <span className="text-xs font-medium text-gray-600">Filtros activos:</span>
               {searchJob && (
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-2.5 py-1 text-xs text-gray-600">
-                  "{searchJob}"
-                  <button onClick={() => { setSearchJob(""); setTimeout(handleSearch, 50); }} className="hover:text-red-500">
-                    <X className="size-3" />
+                  &ldquo;{searchJob}&rdquo;
+                  <button onClick={() => { setSearchJob(""); setTimeout(handleSearch, 50); }} className="hover:text-red-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0a59a3] rounded-sm" aria-label={`Eliminar filtro: ${searchJob}`}>
+                    <X className="size-3" aria-hidden="true" />
                   </button>
                 </span>
               )}
               {searchWhere && (
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-2.5 py-1 text-xs text-gray-600">
                   <MapPin className="size-3" /> {searchWhere}
-                  <button onClick={() => { setSearchWhere(""); setTimeout(handleSearch, 50); }} className="hover:text-red-500">
-                    <X className="size-3" />
+                  <button onClick={() => { setSearchWhere(""); setTimeout(handleSearch, 50); }} className="hover:text-red-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0a59a3] rounded-sm" aria-label={`Eliminar filtro: ${searchWhere}`}>
+                    <X className="size-3" aria-hidden="true" />
                   </button>
                 </span>
               )}
               {searchCategory && (
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-2.5 py-1 text-xs text-gray-600">
                   <Briefcase className="size-3" /> {searchCategory}
-                  <button onClick={() => { setSearchCategory(""); setTimeout(handleSearch, 50); }} className="hover:text-red-500">
-                    <X className="size-3" />
+                  <button onClick={() => { setSearchCategory(""); setTimeout(handleSearch, 50); }} className="hover:text-red-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0a59a3] rounded-sm" aria-label={`Eliminar filtro: ${searchCategory}`}>
+                    <X className="size-3" aria-hidden="true" />
                   </button>
                 </span>
               )}
               <button
                 onClick={handleResetFilters}
-                className="text-xs font-semibold text-[#0a59a3] hover:underline"
+                className="text-xs font-semibold text-[#0a59a3] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0a59a3] rounded-sm"
               >
                 {t("jobs.reset")}
               </button>
@@ -287,9 +281,9 @@ export default function LandingPage() {
               <p className="text-base text-gray-600 font-medium">{t("jobs.noResults")}</p>
               <button
                 onClick={handleResetFilters}
-                className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[#0a59a3] hover:underline"
+                className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[#0a59a3] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0a59a3] rounded-sm"
               >
-                {t("jobs.reset")} <ArrowRight className="size-4" />
+                {t("jobs.reset")} <ArrowRight className="size-4" aria-hidden="true" />
               </button>
             </div>
           ) : (
@@ -311,7 +305,7 @@ export default function LandingPage() {
                             Destacado
                           </span>
                         )}
-                        <span className="inline-flex items-center rounded-full bg-slate-50 px-2 py-0.5 text-[10px] font-semibold text-gray-500 border border-slate-100">
+                        <span className="inline-flex items-center rounded-full bg-slate-50 px-2 py-0.5 text-[10px] font-semibold text-gray-600 border border-slate-100">
                           {job.posted}
                         </span>
                       </div>
@@ -321,12 +315,12 @@ export default function LandingPage() {
                       {job.title}
                     </h3>
 
-                    <p className="text-xs font-semibold text-gray-500 mt-1 flex items-center gap-1">
+                    <p className="text-xs font-semibold text-gray-600 mt-1 flex items-center gap-1">
                       <Building2 className="size-3.5 text-gray-400" />
                       {job.company}
                     </p>
 
-                    <p className="text-xs text-gray-500 mt-3 line-clamp-2 leading-relaxed">
+                    <p className="text-xs text-gray-600 mt-3 line-clamp-2 leading-relaxed">
                       {job.description}
                     </p>
                   </div>
@@ -334,25 +328,25 @@ export default function LandingPage() {
                   {/* Job Footer Actions & Tags */}
                   <div className="mt-6 border-t border-gray-50 pt-4">
                     <div className="flex flex-col gap-2 mb-4">
-                      <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                      <div className="flex items-center gap-1.5 text-xs text-gray-600">
                         <MapPin className="size-3.5 text-[#0da845]" />
                         <span>{job.location}</span>
                       </div>
-                      <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                      <div className="flex items-center gap-1.5 text-xs text-gray-600">
                         <DollarSign className="size-3.5 text-amber-500" />
                         <span>{job.salary}</span>
                       </div>
                     </div>
 
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-[10px] font-bold text-slate-400 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-100">
+                      <span className="text-[10px] font-bold text-gray-600 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-100">
                         {job.type}
                       </span>
                       <button
                         onClick={() => setSelectedJob(job)}
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#0a59a3] hover:text-[#004b8d] group-hover:translate-x-1 transition-all"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#0a59a3] hover:text-[#004b8d] group-hover:translate-x-1 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0a59a3] rounded-md"
                       >
-                        {t("jobs.apply")} <ArrowRight className="size-3.5" />
+                        {t("jobs.apply")} <ArrowRight className="size-3.5" aria-hidden="true" />
                       </button>
                     </div>
                   </div>
@@ -361,6 +355,9 @@ export default function LandingPage() {
             </div>
           )}
         </section>
+
+        {/*COMPAÑIAS DESTACADAS */}
+        <Companies />
 
             {/* Section como funciona*/}
         <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -381,8 +378,8 @@ export default function LandingPage() {
 
       {/* DETAILED JOB DESCRIPTION DRAWER/MODAL */}
       {selectedJob && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="w-full max-w-lg bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100 flex flex-col max-h-[90vh] animate-in zoom-in-95 duration-200">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200" role="presentation">
+          <div className="w-full max-w-lg bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100 flex flex-col max-h-[90vh] animate-in zoom-in-95 duration-200" role="dialog" aria-modal="true" aria-label={selectedJob.title}>
             {/* Modal Header */}
             <div className="p-6 border-b border-gray-100 flex items-start justify-between gap-4">
               <div className="flex items-center gap-4">
@@ -391,12 +388,12 @@ export default function LandingPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-gray-900">{selectedJob.title}</h3>
-                  <p className="text-xs font-semibold text-gray-500">{selectedJob.company}</p>
+                  <p className="text-xs font-semibold text-gray-600">{selectedJob.company}</p>
                 </div>
               </div>
               <button
                 onClick={() => setSelectedJob(null)}
-                className="rounded-lg p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-600 focus:outline-none"
+                className="rounded-lg p-1.5 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0a59a3]"
               >
                 <X className="size-5" />
               </button>
@@ -405,7 +402,7 @@ export default function LandingPage() {
             {/* Modal Scrollable Body */}
             <div className="p-6 overflow-y-auto space-y-6">
               <div>
-                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">{t("jobs.details")}</h4>
+                <h4 className="text-xs font-bold text-gray-600 uppercase tracking-wider mb-2">{t("jobs.details")}</h4>
                 <div className="grid grid-cols-2 gap-4 bg-slate-50 p-4 rounded-2xl border border-gray-100">
                   <div className="flex items-center gap-2 text-xs text-gray-600">
                     <MapPin className="size-4 text-[#0da845]" />
@@ -427,7 +424,7 @@ export default function LandingPage() {
               </div>
 
               <div>
-                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">{t("modal.jobDescription")}</h4>
+                <h4 className="text-xs font-bold text-gray-600 uppercase tracking-wider mb-2">{t("modal.jobDescription")}</h4>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   {selectedJob.description}
                 </p>
@@ -445,13 +442,13 @@ export default function LandingPage() {
             <div className="p-6 border-t border-gray-100 bg-slate-50 flex items-center justify-end gap-3">
               <button
                 onClick={() => setSelectedJob(null)}
-                className="rounded-xl border border-gray-200 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-[0.98] transition-all"
+                className="rounded-xl border border-gray-200 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-[0.98] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0a59a3] focus-visible:ring-offset-2"
               >
                 {t("jobs.close")}
               </button>
               <button
                 onClick={handleApply}
-                className="rounded-xl bg-[#0a59a3] px-6 py-2.5 text-sm font-semibold text-white shadow-md hover:bg-[#004b8d] active:scale-[0.98] transition-all"
+                className="rounded-xl bg-[#0a59a3] px-6 py-2.5 text-sm font-semibold text-white shadow-md hover:bg-[#004b8d] active:scale-[0.98] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0a59a3] focus-visible:ring-offset-2"
               >
                 {t("jobs.apply")}
               </button>
@@ -462,7 +459,7 @@ export default function LandingPage() {
 
       {/* SUCCESS APPLICATION FLOATING TOAST */}
       {showSuccessToast && (
-        <div className="fixed bottom-6 left-6 z-50 max-w-sm rounded-2xl bg-slate-900 p-4 text-white shadow-2xl border border-slate-800 flex items-start gap-3 animate-in slide-in-from-bottom-5 duration-300">
+        <div role="alert" className="fixed bottom-6 left-6 z-50 max-w-sm rounded-2xl bg-slate-900 p-4 text-white shadow-2xl border border-slate-800 flex items-start gap-3 animate-in slide-in-from-bottom-5 duration-300">
           <div className="rounded-full bg-emerald-500 p-1 text-white">
             <CheckCircle className="size-5" />
           </div>
