@@ -39,7 +39,7 @@ export function LoginActionsSection({
 
       {/* Switch to Register */}
       <div className="text-center pt-2">
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-gray-600">
           ¿No tienes una cuenta?{" "}
           <button
             type="button"
