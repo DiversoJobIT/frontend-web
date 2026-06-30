@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const posts = [
   {
     image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200",
@@ -24,10 +26,10 @@ const posts = [
 
 export default function Blog() {
   return (
-    <section className="bg-gray-50 py-16 sm:py-24">
+    <section aria-labelledby="blog-heading" className="bg-gray-50 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Nuestro Blog</h2>
+          <h2 id="blog-heading" className="text-3xl sm:text-4xl font-bold text-gray-900">Nuestro Blog</h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
             Aprende sobre inclusión laboral y crecimiento profesional
           </p>
@@ -40,17 +42,19 @@ export default function Blog() {
               className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100"
             >
               <div className="relative h-48 overflow-hidden">
-                <img
+                <Image
                   src={post.image}
                   alt={post.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="p-6">
-                <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                <div className="flex items-center gap-2 text-sm text-gray-600 mb-3">
                   <span>{post.author}</span>
-                  <span>·</span>
-                  <time>{post.date}</time>
+                  <span aria-hidden="true">·</span>
+                  <time dateTime="2026-03-19">{post.date}</time>
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">
                   {post.title}
@@ -60,10 +64,10 @@ export default function Blog() {
                 </p>
                 <a
                   href="#"
-                  className="inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors"
+                  className="inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 rounded-sm"
                 >
                   Leer más
-                  <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </a>
@@ -75,10 +79,10 @@ export default function Blog() {
         <div className="text-center mt-12">
           <a
             href="#"
-            className="inline-flex items-center px-6 py-3 border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-colors"
+            className="inline-flex items-center px-6 py-3 border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0a59a3] focus-visible:ring-offset-2"
           >
             Ver todos los artículos
-            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </a>
