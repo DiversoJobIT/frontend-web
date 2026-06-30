@@ -15,7 +15,7 @@ export default function Features() {
           <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
             {t("features.title")}
           </h2>
-          <p className="mt-2 text-gray-500 text-sm">
+          <p className="mt-2 text-gray-600 text-sm">
             {t("features.subtitle")}
           </p>
         </div>
@@ -26,7 +26,7 @@ export default function Features() {
               <Globe className="size-5" />
             </div>
             <h3 className="text-lg font-bold text-gray-900 mb-2">{t("features.card1Title")}</h3>
-            <p className="text-sm text-gray-500 leading-relaxed">
+            <p className="text-sm text-gray-600 leading-relaxed">
               {t("features.card1Desc")}
             </p>
           </div>
@@ -36,7 +36,7 @@ export default function Features() {
               <CheckCircle className="size-5" />
             </div>
             <h3 className="text-lg font-bold text-gray-900 mb-2">{t("features.card2Title")}</h3>
-            <p className="text-sm text-gray-500 leading-relaxed">
+            <p className="text-sm text-gray-600 leading-relaxed">
               {t("features.card2Desc")}
             </p>
           </div>
@@ -46,7 +46,7 @@ export default function Features() {
               <Sparkles className="size-5" />
             </div>
             <h3 className="text-lg font-bold text-gray-900 mb-2">{t("features.card3Title")}</h3>
-            <p className="text-sm text-gray-500 leading-relaxed">
+            <p className="text-sm text-gray-600 leading-relaxed">
               {t("features.card3Desc")}
             </p>
           </div>
