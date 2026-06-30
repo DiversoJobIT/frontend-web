@@ -10,11 +10,7 @@ import { RequiredDocumentsSection } from "./RequiredDocumentsSection";
 import { DataProtectionSection } from "./DataProtectionSection";
 import { TermsDialog } from "./TermsDialog";
 
-interface RegisterSectionProps {
-  onSwitchToLogin: () => void;
-}
-
-export function RegisterSection({ onSwitchToLogin }: RegisterSectionProps) {
+export function RegisterSection() {
   const router = useRouter();
   const [showTerms, setShowTerms] = useState(false);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
