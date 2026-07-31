@@ -14,7 +14,7 @@ export function TermsDialog({ open, onOpenChange }: TermsDialogProps) {
           <DialogTitle className="text-[#0a59a3] text-xl font-bold">
             Términos de Protección de Datos Personales
           </DialogTitle>
-          <DialogDescription className="text-xs text-gray-500">
+          <DialogDescription className="text-xs text-gray-600">
             DiversoJob - Plataforma de Empleo Inclusivo
           </DialogDescription>
         </DialogHeader>

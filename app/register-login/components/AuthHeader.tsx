@@ -21,7 +21,7 @@ export function AuthHeader({ title, subtitle }: AuthHeaderProps) {
       <h1 className="text-3xl font-extrabold text-[#0a59a3] tracking-tight">
         {title}
       </h1>
-      <p className="mt-2 text-sm text-gray-500">
+      <p className="mt-2 text-sm text-gray-600">
         {subtitle}
       </p>
     </div>
