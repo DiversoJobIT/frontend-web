@@ -10,7 +10,7 @@ export function AuthHeader({ title, subtitle }: AuthHeaderProps) {
     <div className="text-center mb-8">
       <div className="inline-flex items-center justify-center mb-4">
         <Image
-          src="/DiversoJob.png"
+          src="/logos/DiversoJob.png"
           alt="DiversoJob Logo"
           width={160}
           height={160}

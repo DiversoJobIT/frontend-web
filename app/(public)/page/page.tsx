@@ -5,9 +5,9 @@ import { MapPin, Briefcase, DollarSign, Calendar, X, ArrowRight, CheckCircle, Bu
 import { useTranslation } from "react-i18next";
 import "@/lib/i18n";
 
-import Header from "./components/header";
+import Header from "@/components/layout/header";
 import Hero from "./components/Hero";
-import Footer from "./components/Footer";
+import Footer from "@/components/layout/Footer";
 import HowItWorks from "./components/HowItWorks";
 import Blog from "./components/Blog";
 import Companies from "./components/Companies";

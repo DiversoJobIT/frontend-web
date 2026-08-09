@@ -18,7 +18,7 @@ function RegisterLoginForm() {
 
   const handleTabChange = (tab: "register" | "login") => {
     setActiveTab(tab);
-    router.replace(`/register-login?tab=${tab}`, { scroll: false });
+    router.replace(`/login?tab=${tab}`, { scroll: false });
   };
 
   return (

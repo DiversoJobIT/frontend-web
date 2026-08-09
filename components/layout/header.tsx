@@ -241,7 +241,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         <div className="flex h-16 items-center px-6 border-r border-gray-100 md:h-20 lg:px-8">
           <Link href="/" className="flex items-center gap-3" aria-label="Ir al inicio">
-            <Image src="/DiversoJob.png" alt="DiversoJob Logo" width={120} height={120} className="h-8 w-auto" />
+            <Image src="/logos/DiversoJob.png" alt="DiversoJob Logo" width={120} height={120} className="h-8 w-auto" />
           </Link>
         </div>
 
@@ -293,7 +293,7 @@ export default function Header() {
           </div>
 
           <Link
-            href="/register-login?tab=login"
+            href="/login?tab=login"
             className="flex items-center gap-2 text-sm font-semibold text-gray-700 transition-colors hover:text-[#0a59a3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0a59a3] focus-visible:ring-offset-2 rounded-md px-1"
           >
             <div className="rounded-full bg-slate-100 p-1.5 text-gray-600" aria-hidden="true">
@@ -302,7 +302,7 @@ export default function Header() {
             {t("nav.registroEmpresa")}
           </Link>
           <Link
-            href="/register-login?tab=register"
+            href="/login?tab=register"
             className="flex items-center gap-2 rounded-xl bg-[#0a59a3] px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#004b8d] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0a59a3] focus-visible:ring-offset-2"
           >
             <PlusCircle className="size-4" aria-hidden="true" />
@@ -346,14 +346,14 @@ export default function Header() {
             ))}
             <div className="my-2 h-px bg-gray-100" />
             <Link
-              href="/register-login?tab=login"
+              href="/login?tab=login"
               className="flex items-center gap-2 py-2 text-base font-semibold text-gray-700 hover:text-[#0a59a3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0a59a3] rounded-md px-2"
             >
               <Lock className="size-4" aria-hidden="true" />
               {t("nav.registroEmpresa")}
             </Link>
             <Link
-              href="/register-login?tab=register"
+              href="/login?tab=register"
               className="flex items-center justify-center gap-2 rounded-xl bg-[#0a59a3] py-2.5 text-base font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0a59a3] focus-visible:ring-offset-2"
             >
               <PlusCircle className="size-4" aria-hidden="true" />

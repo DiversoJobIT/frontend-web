@@ -2,8 +2,8 @@
 
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
-import Header from "@/app/landing/components/header";
-import Footer from "@/app/landing/components/Footer";
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/Footer";
 
 const FAQS = [
   {

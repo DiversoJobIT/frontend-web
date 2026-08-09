@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import Interview from "@/public/Interview-bro-1.svg"
+import Interview from "@/public/icons/Interview-bro-1.svg"
 
 const steps = [
   {
