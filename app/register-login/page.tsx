@@ -23,7 +23,11 @@ function RegisterLoginForm() {
 
   return (
     <div className="min-h-screen bg-[#fafafa] py-12 px-4 font-sans antialiased text-[#1a1a1a]">
-      <div className="container mx-auto max-w-3xl">
+      <div
+        className={`container mx-auto transition-[max-width] duration-300 ease-out ${
+          activeTab === "register" ? "max-w-3xl" : "max-w-lg"
+        }`}
+      >
         {/* Cabecera dinámica compartida */}
         <AuthHeader
           title={activeTab === "register" ? "Registro de Talento" : "Iniciar Sesión"}
@@ -35,7 +39,7 @@ function RegisterLoginForm() {
         />
 
         {/* Card Principal de Autenticación */}
-        <Card className="border border-gray-100 shadow-md rounded-2xl bg-white overflow-hidden">
+        <Card className="gap-0 border border-gray-100 shadow-md rounded-2xl bg-white overflow-hidden">
           {/* Barra de Pestañas (Tabs) con indicador deslizante */}
           <div className="relative flex border-b border-gray-100 bg-slate-50 p-1.5">
             <div

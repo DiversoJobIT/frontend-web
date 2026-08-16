@@ -36,7 +36,7 @@ export function RegisterSection() {
 
   return (
     <>
-      <CardHeader className="p-8 border-b border-gray-50">
+      <CardHeader className="px-8 pt-6 pb-2">
         <CardTitle className="text-xl font-bold text-gray-900">
           Información Personal
         </CardTitle>
@@ -44,7 +44,7 @@ export function RegisterSection() {
           Todos los campos marcados con * son obligatorios
         </CardDescription>
       </CardHeader>
-      <CardContent className="px-8 pb-8 pt-6">
+      <CardContent className="px-8 pb-8 pt-2">
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Sección 1: Información Personal */}
           <PersonalInfoSection />

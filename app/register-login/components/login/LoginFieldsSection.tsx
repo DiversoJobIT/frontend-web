@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Mail, Lock } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -38,13 +39,12 @@ export function LoginFieldsSection({
       <div className="space-y-2">
         <div className="flex items-center justify-between">
           <Label htmlFor="login-password">Contraseña *</Label>
-          <button
-            type="button"
+          <Link
+            href="/forgot-password"
             className="text-xs font-semibold text-[#0a59a3] hover:text-[#004b8d] hover:underline cursor-pointer"
-            onClick={() => alert("Recuperar contraseña...")}
           >
             ¿Olvidaste tu contraseña?
-          </button>
+          </Link>
         </div>
         <div className="relative">
           <Lock className="absolute left-3.5 top-3 size-4 text-gray-400" />
