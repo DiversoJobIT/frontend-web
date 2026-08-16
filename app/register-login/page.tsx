@@ -75,7 +75,7 @@ function RegisterLoginForm() {
           {activeTab === "register" ? (
             <RegisterSection />
           ) : (
-            <LoginSection onSwitchToRegister={() => handleTabChange("register")} />
+            <LoginSection />
           )}
         </Card>
 

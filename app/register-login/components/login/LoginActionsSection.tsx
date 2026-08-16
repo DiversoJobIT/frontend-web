@@ -6,13 +6,11 @@ import { Button } from "@/components/ui/button";
 interface LoginActionsSectionProps {
   rememberMe: boolean;
   setRememberMe: (checked: boolean) => void;
-  onSwitchToRegister: () => void;
 }
 
 export function LoginActionsSection({
   rememberMe,
   setRememberMe,
-  onSwitchToRegister,
 }: LoginActionsSectionProps) {
   return (
     <div className="space-y-5">
@@ -36,20 +34,6 @@ export function LoginActionsSection({
         <LogIn className="size-4 mr-2" />
         Iniciar Sesión
       </Button>
-
-      {/* Switch to Register */}
-      <div className="text-center pt-2">
-        <p className="text-sm text-gray-600">
-          ¿No tienes una cuenta?{" "}
-          <button
-            type="button"
-            onClick={onSwitchToRegister}
-            className="text-[#0a59a3] hover:text-[#004b8d] hover:underline font-bold transition-colors cursor-pointer"
-          >
-            Regístrate aquí
-          </button>
-        </p>
-      </div>
     </div>
   );
 }
