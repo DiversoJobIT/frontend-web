@@ -7,7 +7,11 @@ import { createClient } from "@/lib/supabase/client";
 import { LoginFieldsSection } from "./LoginFieldsSection";
 import { LoginActionsSection } from "./LoginActionsSection";
 
-export function LoginSection() {
+interface LoginSectionProps {
+  onSwitchToRegister: () => void;
+}
+
+export function LoginSection({ onSwitchToRegister }: LoginSectionProps) {
   const searchParams = useSearchParams();
   const passwordUpdated = searchParams.get("passwordUpdated") === "true";
   const [email, setEmail] = useState("");
@@ -69,6 +73,7 @@ export function LoginSection() {
           <LoginActionsSection
             rememberMe={rememberMe}
             setRememberMe={setRememberMe}
+            onSwitchToRegister={onSwitchToRegister}
           />
         </form>
       </CardContent>
