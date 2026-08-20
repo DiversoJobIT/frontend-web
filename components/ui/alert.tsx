@@ -12,16 +12,12 @@ const alertVariants = cva(
           "text-red-600 bg-red-50 border-red-100 *:data-[slot=alert-description]:text-red-600/90",
         info:
           "text-[#0a59a3] bg-blue-50/50 border-blue-100 *:data-[slot=alert-description]:text-[#0a59a3]/90",
-        success:
-          "text-emerald-700 bg-emerald-50 border-emerald-100 *:data-[slot=alert-description]:text-emerald-700/90",
-        warning:
-          "text-amber-700 bg-amber-50 border-amber-100 *:data-[slot=alert-description]:text-amber-700/90",
       },
     },
     defaultVariants: {
       variant: "default",
     },
-  }
+  },
 );
 
 function Alert({
@@ -43,7 +39,10 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="alert-title"
-      className={cn("font-semibold tracking-tight text-sm", className)}
+      className={cn(
+        "font-semibold tracking-tight text-sm",
+        className,
+      )}
       {...props}
     />
   );
@@ -56,10 +55,13 @@ function AlertDescription({
   return (
     <div
       data-slot="alert-description"
-      className={cn("text-xs leading-relaxed text-gray-600", className)}
+      className={cn(
+        "text-xs leading-relaxed text-gray-600",
+        className,
+      )}
       {...props}
     />
   );
 }
 
-export { Alert, AlertTitle, AlertDescription, alertVariants };
+export { Alert, AlertTitle, AlertDescription };
