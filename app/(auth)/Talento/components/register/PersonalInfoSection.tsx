@@ -1,6 +1,7 @@
-import { User, Mail, Phone, MapPin, Lock } from "lucide-react";
+import { User, Mail, Phone, MapPin } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { PasswordInput } from "@/components/ui/password-input";
 
 export function PersonalInfoSection() {
   return (
@@ -72,32 +73,22 @@ export function PersonalInfoSection() {
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <Label htmlFor="password">Contraseña *</Label>
-          <div className="relative">
-            <Lock className="absolute left-3.5 top-3 size-4 text-gray-400" />
-            <Input
-              id="password"
-              name="password"
-              type="password"
-              placeholder="••••••••"
-              className="pl-10"
-              required
-            />
-          </div>
+          <PasswordInput
+            id="password"
+            name="password"
+            placeholder="••••••••"
+            required
+          />
         </div>
 
         <div className="space-y-2">
           <Label htmlFor="confirm-password">Confirmar contraseña *</Label>
-          <div className="relative">
-            <Lock className="absolute left-3.5 top-3 size-4 text-gray-400" />
-            <Input
-              id="confirm-password"
-              name="confirm-password"
-              type="password"
-              placeholder="••••••••"
-              className="pl-10"
-              required
-            />
-          </div>
+          <PasswordInput
+            id="confirm-password"
+            name="confirm-password"
+            placeholder="••••••••"
+            required
+          />
         </div>
       </div>
     </div>

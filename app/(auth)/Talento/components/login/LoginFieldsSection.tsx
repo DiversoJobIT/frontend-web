@@ -1,6 +1,8 @@
-import { Mail, Lock } from "lucide-react";
+import Link from "next/link";
+import { Mail } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { PasswordInput } from "@/components/ui/password-input";
 
 interface LoginFieldsSectionProps {
   email: string;
@@ -16,12 +18,11 @@ export function LoginFieldsSection({
   setPassword,
 }: LoginFieldsSectionProps) {
   return (
-    <div className="space-y-5">
-      {/* Correo Electrónico */}
+    <div className="space-y-4">
       <div className="space-y-2">
         <Label htmlFor="login-email">Correo electrónico *</Label>
         <div className="relative">
-          <Mail className="absolute left-3.5 top-3 size-4 text-gray-400" />
+          <Mail className="absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-gray-400" />
           <Input
             id="login-email"
             type="email"
@@ -34,30 +35,23 @@ export function LoginFieldsSection({
         </div>
       </div>
 
-      {/* Contraseña */}
       <div className="space-y-2">
         <div className="flex items-center justify-between">
           <Label htmlFor="login-password">Contraseña *</Label>
-          <button
-            type="button"
+          <Link
+            href="/forgot-password"
             className="text-xs font-semibold text-[#0a59a3] hover:text-[#004b8d] hover:underline cursor-pointer"
-            onClick={() => alert("Recuperar contraseña...")}
           >
             ¿Olvidaste tu contraseña?
-          </button>
+          </Link>
         </div>
-        <div className="relative">
-          <Lock className="absolute left-3.5 top-3 size-4 text-gray-400" />
-          <Input
-            id="login-password"
-            type="password"
-            placeholder="••••••••"
-            className="pl-10"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
+        <PasswordInput
+          id="login-password"
+          placeholder="••••••••"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
       </div>
     </div>
   );

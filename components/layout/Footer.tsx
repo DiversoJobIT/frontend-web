@@ -47,7 +47,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-2.5 text-xs text-gray-600">
               <li><a href="/browse-jobs" className={linkClass}>{t("footer.cBrowseJobs")}</a></li>
               <li><a href="/browse-categories" className={linkClass}>{t("footer.cBrowseCategories")}</a></li>
-              <li><Link href="/login" className={linkClass}>{t("footer.cDashboard")}</Link></li>
+              <li><Link href="/Talento?tab=login" className={linkClass}>{t("footer.cDashboard")}</Link></li>
               <li><a href="/job-alerts" className={linkClass}>{t("footer.cJobAlerts")}</a></li>
               <li><a href="/my-bookmarks" className={linkClass}>{t("footer.cBookmarks")}</a></li>
             </ul>
@@ -58,7 +58,7 @@ export default function Footer() {
             <h4 className="text-xs font-bold text-gray-800 uppercase tracking-wider mb-4">{t("footer.companies")}</h4>
             <ul className="flex flex-col gap-2.5 text-xs text-gray-600">
               <li><a href="/resumes" className={linkClass}>{t("footer.coBrowseCandidates")}</a></li>
-              <li><Link href="/login" className={linkClass}>{t("footer.coDashboard")}</Link></li>
+              <li><Link href="/Talento?tab=login" className={linkClass}>{t("footer.coDashboard")}</Link></li>
               <li><a href="/post-a-job" className={linkClass}>{t("footer.coAddJob")}</a></li>
               <li><a href="/job-packages" className={linkClass}>{t("footer.coPackages")}</a></li>
             </ul>

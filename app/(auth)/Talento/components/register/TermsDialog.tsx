@@ -88,10 +88,7 @@ export function TermsDialog({ open, onOpenChange }: TermsDialogProps) {
           </section>
         </div>
         <div className="mt-6 flex justify-end">
-          <Button
-            onClick={() => onOpenChange(false)}
-            className="bg-[#0a59a3] hover:bg-[#004b8d] text-white rounded-xl font-bold cursor-pointer transition-colors"
-          >
+          <Button onClick={() => onOpenChange(false)} variant="primary">
             Cerrar
           </Button>
         </div>

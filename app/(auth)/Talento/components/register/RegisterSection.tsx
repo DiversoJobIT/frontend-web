@@ -68,16 +68,18 @@ export function RegisterSection() {
           <div className="flex gap-4 pt-4 border-t border-gray-100">
             <Button
               type="submit"
-              className="flex-1 bg-[#0a59a3] hover:bg-[#004b8d] text-white py-2.5 rounded-xl font-bold cursor-pointer transition-colors shadow-sm disabled:opacity-50 disabled:pointer-events-none"
+              variant="primary"
+              size="lg"
+              className="flex-1"
               disabled={!acceptedTerms || !cedulaFile || !carnetFile}
+              leftIcon={<Upload />}
             >
-              <Upload className="size-4 mr-2" />
               Crear mi perfil
             </Button>
             <Button
               type="button"
               variant="outline"
-              className="rounded-xl border border-gray-200 text-gray-600 hover:bg-slate-50 cursor-pointer"
+              size="lg"
               onClick={() => router.push("/")}
             >
               Cancelar
