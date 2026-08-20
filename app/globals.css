@@ -118,11 +118,6 @@
 }
 
 
-html {
-  scrollbar-gutter: stable;
-  overflow-y: scroll;
-}
-
 .dropdown-menu {
   @apply bg-popover text-popover-foreground border border-border rounded-md shadow-md p-1;
 }
