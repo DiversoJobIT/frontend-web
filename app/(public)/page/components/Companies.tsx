@@ -1,66 +1,21 @@
 "use client";
 
-import { MapPin, Users, DollarSign, Star, ArrowRight, Building2 } from "lucide-react";
-
-
-const MOCK_COMPANIES = [
-  {
-    id: 1,
-    name: "King",
-    initials: "K",
-    color: "bg-purple-600",
-    location: "London, UK",
-    employees: "1-5",
-    salary: "$15-$20k",
-    tagline: "Leader in tech industry",
-    description:
-      "Proactively fabricate one-to-one materials via effective e-business. Completely synergize scalable e-commerce rather.",
-    featured: true,
-  },
-  {
-    id: 2,
-    name: "Tech Bits",
-    initials: "TB",
-    color: "bg-blue-600",
-    location: "New York, USA",
-    employees: "50+",
-    salary: "$50k+",
-    tagline: "Lead the way to a brighter Life",
-    description:
-      "Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway.",
-    featured: true,
-  },
-  {
-    id: 3,
-    name: "Purethemes",
-    initials: "P",
-    color: "bg-emerald-600",
-    location: "Dublin, Ireland",
-    employees: "1-5",
-    salary: "$50k+",
-    tagline: "Top-Notch WordPress Experts",
-    description:
-      "Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits.",
-    featured: false,
-  },
-  {
-    id: 4,
-    name: "Coffee Corral",
-    initials: "CC",
-    color: "bg-amber-600",
-    location: "Warsaw, Poland",
-    employees: "15-30",
-    salary: "$15-$20k",
-    tagline: "Premium Coffee Experiences",
-    description:
-      "Distinctively exploit optimal alignments for intuitive bandwidth. Quickly coordinate e-business applications through revolutionary.",
-    featured: false,
-  },
-];
+import {
+  MapPin,
+  Users,
+  DollarSign,
+  Star,
+  ArrowRight,
+  Building2,
+} from "lucide-react";
+import { MOCK_COMPANIES } from "@/lib/utils/mockData/Mock_Companies";
 
 export default function Companies() {
   return (
-    <section aria-labelledby="companies-heading" className="bg-white py-16 sm:py-24">
+    <section
+      aria-labelledby="companies-heading"
+      className="bg-white py-16 sm:py-24"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2
@@ -103,15 +58,24 @@ export default function Companies() {
 
               <div className="mt-4 space-y-2 text-sm text-gray-600">
                 <div className="flex items-center gap-2">
-                  <MapPin className="size-4 text-gray-400 shrink-0" aria-hidden="true" />
+                  <MapPin
+                    className="size-4 text-gray-400 shrink-0"
+                    aria-hidden="true"
+                  />
                   <span>{company.location}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Users className="size-4 text-gray-400 shrink-0" aria-hidden="true" />
+                  <Users
+                    className="size-4 text-gray-400 shrink-0"
+                    aria-hidden="true"
+                  />
                   <span>{company.employees} empleados</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <DollarSign className="size-4 text-amber-500 shrink-0" aria-hidden="true" />
+                  <DollarSign
+                    className="size-4 text-amber-500 shrink-0"
+                    aria-hidden="true"
+                  />
                   <span>{company.salary}</span>
                 </div>
               </div>
