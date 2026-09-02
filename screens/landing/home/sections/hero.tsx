@@ -1,7 +1,9 @@
-import { type FormEvent, useMemo, memo } from "react";
+import { useMemo, memo, useContext } from "react";
 import Image from "next/image";
 import { Search, MapPin, Briefcase, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
+
+import { JobSearchContext } from "@/contexts/common/job-search.context";
 
 import { useWriteDeleteEffect } from "@/hooks/common/effects/use-write-delete-effect.hook";
 import { useAllCategories } from "@/hooks/common/categories/use-all-categories.hook";
@@ -9,27 +11,18 @@ import { useAllCategories } from "@/hooks/common/categories/use-all-categories.h
 const TYPING_TERMS = ["tecnología", "diseño", "marketing", "negocios", "sistemas", "desarrollo"];
 const TYPING_TERMS_EN = ["technology", "design", "marketing", "business", "systems", "development"];
 
-interface HeroProps {
-  searchJob: string;
-  setSearchJob: (val: string) => void;
-  searchWhere: string;
-  setSearchWhere: (val: string) => void;
-  searchCategory: string;
-  setSearchCategory: (val: string) => void;
-  handleSearch: (e?: FormEvent) => void;
-}
-
-export default function Hero({
-  searchJob,
-  setSearchJob,
-  searchWhere,
-  setSearchWhere,
-  searchCategory,
-  setSearchCategory,
-  handleSearch,
-}: HeroProps) {
+export default function Hero() {
   const { t } = useTranslation();
   const { categories, loading } = useAllCategories();
+  const {
+    handleSearch,
+    searchJob,
+    setSearchJob,
+    searchWhere,
+    setSearchWhere,
+    searchCategory,
+    setSearchCategory,
+  } = useContext(JobSearchContext);
 
   return (
     <section aria-labelledby="hero-heading" className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
