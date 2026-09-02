@@ -5,7 +5,7 @@ import { ChevronDown, Lock, PlusCircle, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import "@/lib/i18n";
+import "@/lib/i18n/i18n";
 
 interface SubItem {
   label: string;

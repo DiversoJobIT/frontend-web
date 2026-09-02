@@ -3,7 +3,7 @@
 import React from "react";
 import { Globe, CheckCircle, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import "@/lib/i18n";
+import "@/lib/i18n/i18n";
 
 export default function Features() {
   const { t } = useTranslation();

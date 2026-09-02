@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Search, MapPin, Briefcase, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import "@/lib/i18n";
+import "@/lib/i18n/i18n";
 
 const TYPING_TERMS = ["tecnología", "diseño", "marketing", "negocios", "sistemas", "desarrollo"];
 const TYPING_TERMS_EN = ["technology", "design", "marketing", "business", "systems", "development"];

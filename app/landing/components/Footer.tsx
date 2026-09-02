@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useTranslation } from "react-i18next";
-import "@/lib/i18n";
+import "@/lib/i18n/i18n";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/public/DiversoJob.png";

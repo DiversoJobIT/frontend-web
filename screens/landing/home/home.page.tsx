@@ -3,14 +3,13 @@
 import React, { useState, useMemo } from "react";
 import { MapPin, Briefcase, DollarSign, Calendar, X, ArrowRight, CheckCircle, Building2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import "@/lib/i18n";
 
-import Header from "./components/header";
-import Hero from "./components/Hero";
-import Footer from "./components/Footer";
-import HowItWorks from "./components/HowItWorks";
-import Blog from "./components/Blog";
-import Companies from "./components/Companies";
+import Header from "@/app/landing/components/header";
+import Hero from "@/app/landing/components/Hero";
+import Footer from "@/app/landing/components/Footer";
+import HowItWorks from "@/app/landing/components/HowItWorks";
+import Blog from "@/app/landing/components/Blog";
+import Companies from "@/app/landing/components/Companies";
 
 // Mock Jobs Database for interactive search functionality
 const MOCK_JOBS = [
@@ -123,7 +122,7 @@ const CATEGORIES = [
   "Recursos Humanos"
 ];
 
-export default function LandingPage() {
+export default function HomePage() {
   const { t } = useTranslation();
 
   // Search States
