@@ -1,0 +1,80 @@
+{
+  "translation": {
+    "nav": {
+      "inicio": "Inicio",
+      "candidatos": "Para candidatos",
+      "empresas": "Para Empresas",
+      "contacto": "Contactanos",
+      "blog": "Blog",
+      "registroEmpresa": "Registro Empresa",
+      "registro": "Registro"
+    },
+    "hero": {
+      "title": "Encuentra tu trabajo ideal",
+      "prefix": "Contrata expertos o se contratado en ",
+      "labelJob": "Que trabajo estas buscando?",
+      "labelWhere": "Dónde?",
+      "labelCat": "Categorias",
+      "placeholderJob": "Trabajo, habilidad o industria",
+      "placeholderWhere": "Ciudad, Estado",
+      "placeholderCat": "Selecciona Categoría",
+      "btnBuscar": "Buscar",
+      "advanced": "Necesitas más opciones de búsqueda?",
+      "advancedLink": "Búsqueda Avanzada"
+    },
+    "jobs": {
+      "heading": "Ofertas de Empleo Disponibles",
+      "subheading": "Explora las últimas vacantes y postúlate hoy mismo para dar el siguiente paso en tu carrera profesional.",
+      "all": "Todos los Trabajos",
+      "featured": "Destacados",
+      "noResults": "No se encontraron ofertas que coincidan con tu búsqueda.",
+      "reset": "Restablecer filtros",
+      "apply": "Postularse Ahora",
+      "details": "Detalles del Empleo",
+      "successMsg": "¡Postulación enviada con éxito!",
+      "successDesc": "Hemos enviado tu perfil a la empresa. Te contactarán pronto.",
+      "close": "Cerrar"
+    },
+    "features": {
+      "title": "¿Por qué elegir DiversoJob?",
+      "subtitle": "Conectamos el talento más calificado con empresas comprometidas con la diversidad, equidad y la inclusión real.",
+      "card1Title": "Alcance Global y Remoto",
+      "card1Desc": "Accede a ofertas de empleo en todo el mundo con modalidad remota o híbrida que se adaptan a tu estilo de vida.",
+      "card2Title": "Empresas Verificadas",
+      "card2Desc": "Colaboramos únicamente con corporaciones comprometidas con un entorno laboral diverso, inclusivo y libre de discriminación.",
+      "card3Title": "IA para Candidatos",
+      "card3Desc": "Nuestra plataforma optimiza tu currículum de forma automatizada garantizando procesos ciegos y libres de sesgos."
+    },
+    "footer": {
+      "statsJobs": "Ofertas de Empleo",
+      "statsResumes": "CVs Publicados",
+      "candidates": "Para Candidatos",
+      "companies": "Para Empresas",
+      "otros": "Otros",
+      "legal": "Legal",
+      "cBrowseJobs": "Buscar Empleos",
+      "cBrowseCategories": "Explorar Categorías",
+      "cDashboard": "Panel de Candidato",
+      "cJobAlerts": "Alertas de Empleo",
+      "cBookmarks": "Mis Favoritos",
+      "coBrowseCandidates": "Buscar Candidatos",
+      "coDashboard": "Panel de Empresa",
+      "coAddJob": "Publicar Empleo",
+      "coPackages": "Planes de Empleo",
+      "oJobPage": "Página de Empleo",
+      "oTaskPage": "Página de Proyecto",
+      "oResumePage": "Página de CV",
+      "oBlog": "Blog",
+      "oContact": "Contacto",
+      "lPrivacy": "Política de Privacidad",
+      "lTerms": "Condiciones de Uso",
+      "lFaq": "Preguntas Frecuentes",
+      "rights": "© Todos los derechos reservados."
+    },
+    "modal": {
+      "jobDescription": "Descripción del Puesto",
+      "inclusiveCommitment": "Compromiso Inclusivo:",
+      "commitmentDesc": "Este puesto está respaldado por las políticas de contratación sin sesgos de DiversoJob. Al postularte, tu perfil se procesará eliminando sesgos inconscientes referentes a género, edad, nacionalidad o procedencia institucional."
+    }
+  }
+}
