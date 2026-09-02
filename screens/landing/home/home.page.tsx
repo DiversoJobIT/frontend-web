@@ -1,6 +1,6 @@
 "use client";
 
-import { JobSearchProvider } from "@/contexts/common/job-search.context";
+import { JobSearchProvider } from "@/contexts/talent/job-search.context";
 
 import Hero from "./sections/hero";
 import Jobs from "./sections/jobs";

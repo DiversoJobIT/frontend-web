@@ -1,6 +1,6 @@
 import { createContext, useState, type FormEvent } from "react";
 
-import type { GetJobsResultDTO } from "@/modules/common/jobs/application/dtos";
+import type { GetJobsResultDTO } from "@/modules/talent/jobs/application/dtos";
 
 export const JobSearchContext = createContext({
   searchJob: "",

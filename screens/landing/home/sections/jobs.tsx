@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { MapPin, Briefcase, DollarSign, X, ArrowRight, Building2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-import { JobSearchContext } from "@/contexts/common/job-search.context";
+import { JobSearchContext } from "@/contexts/talent/job-search.context";
 
-import { useGetJobs } from "@/hooks/common/jobs/use-get-jobs";
+import { useGetJobs } from "@/hooks/talent/jobs/use-get-jobs";
 
 export default function Jobs() {
   const { t } = useTranslation();

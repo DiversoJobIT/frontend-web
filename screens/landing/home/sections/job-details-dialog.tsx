@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { MapPin, Briefcase, DollarSign, Calendar, X, CheckCircle } from "lucide-react";
 import { useContext, useState } from "react";
 
-import { JobSearchContext } from "@/contexts/common/job-search.context";
+import { JobSearchContext } from "@/contexts/talent/job-search.context";
 
 export default function JobDetailsDialog() {
   const { t } = useTranslation();

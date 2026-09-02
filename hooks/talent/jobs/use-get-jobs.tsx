@@ -3,12 +3,12 @@ import { useMemo, useContext } from "react";
 
 import { TYPES_BROWSER } from "@/di/browser/types.browser";
 
-import { JobSearchContext } from "@/contexts/common/job-search.context";
+import { JobSearchContext } from "@/contexts/talent/job-search.context";
 
-import { useDI } from "../di/use-di.hook";
+import { useDI } from "../../common/di/use-di.hook";
 
-import type { GetJobsResultDTO } from "@/modules/common/jobs/application/dtos";
-import type { JobsQueryService } from "@/modules/common/jobs/application/queries";
+import type { GetJobsResultDTO } from "@/modules/talent/jobs/application/dtos";
+import type { JobsQueryService } from "@/modules/talent/jobs/application/queries";
 
 export function useGetJobs(pagination: { page: number; limit: number }) {
   const {

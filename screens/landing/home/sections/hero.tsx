@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Search, MapPin, Briefcase, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-import { JobSearchContext } from "@/contexts/common/job-search.context";
+import { JobSearchContext } from "@/contexts/talent/job-search.context";
 
 import { useWriteDeleteEffect } from "@/hooks/common/effects/use-write-delete-effect.hook";
 import { useAllCategories } from "@/hooks/common/categories/use-all-categories.hook";
