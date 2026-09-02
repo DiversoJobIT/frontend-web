@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
 
+import { DIProvider } from "@/contexts/common/di.context";
+
 import MainLayout from "@/layouts/common/main.layout";
 
 const geistSans = Geist({
@@ -30,9 +32,11 @@ export default function RootLayout({
       lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <MainLayout>
-        {children}
-      </MainLayout>
+      <DIProvider>
+        <MainLayout>
+          {children}
+        </MainLayout>
+      </DIProvider>
     </html>
   );
 }
