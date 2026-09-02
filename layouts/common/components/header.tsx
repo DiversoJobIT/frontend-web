@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown, Lock, PlusCircle, Menu, X } from "lucide-react";
 import Image from "next/image";

@@ -4,6 +4,9 @@ import type { ReactNode } from "react";
 
 import "@/lib/i18n";
 
+import Header from "./components/header";
+import Footer from "./components/footer";
+
 export default function MainLayout({ children }: { children: ReactNode }) {
   return (
     <body className="min-h-full flex flex-col">
@@ -13,7 +16,12 @@ export default function MainLayout({ children }: { children: ReactNode }) {
       >
         Saltar al contenido principal
       </a>
-      {children}
+      
+      <div className="min-h-screen flex flex-col bg-[#fafafa] font-sans antialiased text-[#1a1a1a]">
+        <Header />
+        {children}
+        <Footer />
+      </div>
     </body>
   );
 }

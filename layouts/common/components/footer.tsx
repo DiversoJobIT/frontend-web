@@ -1,6 +1,3 @@
-"use client";
-
-import React from "react";
 import { useTranslation } from "react-i18next";
 import "@/lib/i18n/i18n";
 import Image from "next/image";

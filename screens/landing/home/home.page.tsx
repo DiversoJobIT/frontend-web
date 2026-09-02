@@ -4,9 +4,8 @@ import React, { useState, useMemo } from "react";
 import { MapPin, Briefcase, DollarSign, Calendar, X, ArrowRight, CheckCircle, Building2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-import Header from "@/app/landing/components/header";
 import Hero from "@/app/landing/components/Hero";
-import Footer from "@/app/landing/components/Footer";
+import Footer from "@/layouts/common/components/footer";
 import HowItWorks from "@/app/landing/components/HowItWorks";
 import Blog from "@/app/landing/components/Blog";
 import Companies from "@/app/landing/components/Companies";
@@ -181,10 +180,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#fafafa] font-sans antialiased text-[#1a1a1a]">
-      {/* HEADER COMPONENT */}
-      <Header />
-
+    <>
       {/* MAIN LANDING CONTAINER */}
       <main id="main-content" className="flex-1">
         {/* HERO COMPONENT */}
@@ -372,9 +368,6 @@ export default function HomePage() {
         <Features />*/}
       </main>
 
-      {/* FOOTER COMPONENT */}
-      <Footer />
-
       {/* DETAILED JOB DESCRIPTION DRAWER/MODAL */}
       {selectedJob && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200" role="presentation">
@@ -470,6 +463,6 @@ export default function HomePage() {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
