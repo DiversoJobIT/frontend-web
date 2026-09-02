@@ -2,8 +2,6 @@
 
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
-import Header from "@/app/landing/components/header";
-import Footer from "@/app/landing/components/Footer";
 
 const FAQS = [
   {
@@ -61,33 +59,27 @@ export default function FAQPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Header />
+    <main className="flex-1 mx-auto w-full max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="text-center mb-12">
+        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">
+          Preguntas Frecuentes
+        </h1>
+        <p className="mt-3 text-base text-gray-600">
+          Resolvemos tus dudas sobre DiversoJob
+        </p>
+      </div>
 
-      <main className="flex-1 mx-auto w-full max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">
-            Preguntas Frecuentes
-          </h1>
-          <p className="mt-3 text-base text-gray-600">
-            Resolvemos tus dudas sobre DiversoJob
-          </p>
-        </div>
-
-        <div className="space-y-3">
-          {FAQS.map((faq, index) => (
-            <AccordionItem
-              key={index}
-              question={faq.q}
-              answer={faq.a}
-              isOpen={openIndex === index}
-              onToggle={() => setOpenIndex(openIndex === index ? null : index)}
-            />
-          ))}
-        </div>
-      </main>
-
-      <Footer />
-    </div>
+      <div className="space-y-3">
+        {FAQS.map((faq, index) => (
+          <AccordionItem
+            key={index}
+            question={faq.q}
+            answer={faq.a}
+            isOpen={openIndex === index}
+            onToggle={() => setOpenIndex(openIndex === index ? null : index)}
+          />
+        ))}
+      </div>
+    </main>
   );
 }
