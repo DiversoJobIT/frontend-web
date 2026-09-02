@@ -4,8 +4,7 @@ import React, { useState, useMemo } from "react";
 import { MapPin, Briefcase, DollarSign, Calendar, X, ArrowRight, CheckCircle, Building2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-import Hero from "@/app/landing/components/Hero";
-import Footer from "@/layouts/common/components/footer";
+import Hero from "./sections/hero";
 import HowItWorks from "@/app/landing/components/HowItWorks";
 import Blog from "@/app/landing/components/Blog";
 import Companies from "@/app/landing/components/Companies";
@@ -112,15 +111,6 @@ const MOCK_JOBS = [
   }
 ];
 
-// Available categories for search selection
-const CATEGORIES = [
-  "Desarrollo de Software",
-  "Diseño",
-  "Marketing",
-  "Gestión de Proyectos",
-  "Recursos Humanos"
-];
-
 export default function HomePage() {
   const { t } = useTranslation();
 
@@ -192,7 +182,6 @@ export default function HomePage() {
           searchCategory={searchCategory}
           setSearchCategory={setSearchCategory}
           handleSearch={handleSearch}
-          categories={CATEGORIES}
         />
 
         {/*PORTAL DE EMPLEO */}

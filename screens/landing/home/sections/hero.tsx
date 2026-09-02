@@ -1,10 +1,10 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
+import { type FormEvent, useMemo, memo } from "react";
 import Image from "next/image";
 import { Search, MapPin, Briefcase, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import "@/lib/i18n/i18n";
+
+import { useWriteDeleteEffect } from "@/hooks/common/effects/use-write-delete-effect.hook";
+import { useAllCategories } from "@/hooks/common/categories/use-all-categories.hook";
 
 const TYPING_TERMS = ["tecnología", "diseño", "marketing", "negocios", "sistemas", "desarrollo"];
 const TYPING_TERMS_EN = ["technology", "design", "marketing", "business", "systems", "development"];
@@ -16,8 +16,7 @@ interface HeroProps {
   setSearchWhere: (val: string) => void;
   searchCategory: string;
   setSearchCategory: (val: string) => void;
-  handleSearch: (e?: React.FormEvent) => void;
-  categories: string[];
+  handleSearch: (e?: FormEvent) => void;
 }
 
 export default function Hero({
@@ -28,46 +27,9 @@ export default function Hero({
   searchCategory,
   setSearchCategory,
   handleSearch,
-  categories,
 }: HeroProps) {
-  const { t, i18n } = useTranslation();
-
-  const [typedText, setTypedText] = useState("");
-  const [termIndex, setTermIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  const currentLang = i18n.language || "es";
-  const termsList = currentLang === "es" ? TYPING_TERMS : TYPING_TERMS_EN;
-
-  useEffect(() => {
-    const currentTerm = termsList[termIndex];
-
-    if (isDeleting) {
-      if (charIndex === 0) {
-        const timer = setTimeout(() => {
-          setIsDeleting(false);
-          setTermIndex((prev) => (prev + 1) % termsList.length);
-        }, 500);
-        return () => clearTimeout(timer);
-      }
-      const timer = setTimeout(() => {
-        setTypedText(currentTerm.substring(0, charIndex - 1));
-        setCharIndex((prev) => prev - 1);
-      }, 70);
-      return () => clearTimeout(timer);
-    }
-
-    if (charIndex === currentTerm.length) {
-      const timer = setTimeout(() => setIsDeleting(true), 1500);
-      return () => clearTimeout(timer);
-    }
-    const timer = setTimeout(() => {
-      setTypedText(currentTerm.substring(0, charIndex + 1));
-      setCharIndex((prev) => prev + 1);
-    }, 120);
-    return () => clearTimeout(timer);
-  }, [charIndex, isDeleting, termIndex, termsList]);
+  const { t } = useTranslation();
+  const { categories, loading } = useAllCategories();
 
   return (
     <section aria-labelledby="hero-heading" className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
@@ -97,10 +59,7 @@ export default function Hero({
 
           <p className="mt-4 text-lg font-medium text-emerald-100 sm:text-xl min-h-8" aria-live="polite" aria-atomic="true">
             {t("hero.prefix")}
-            <span className="relative text-white font-semibold">
-              {typedText}
-              <span className="absolute -right-1 bottom-1 w-0.5 h-5 bg-white animate-pulse" aria-hidden="true" />
-            </span>
+            <TypedText />
           </p>
 
           <form onSubmit={handleSearch} className="mt-10 w-full" role="search" aria-label="Búsqueda de empleos">
@@ -158,9 +117,9 @@ export default function Hero({
                     className="w-full bg-transparent pl-6 pr-8 text-sm text-gray-800 placeholder-gray-500 outline-none appearance-none focus:ring-0 cursor-pointer border-none"
                   >
                     <option value="">{t("hero.placeholderCat") || "Selecciona Categoría"}</option>
-                    {categories.map((cat) => (
-                      <option key={cat} value={cat}>
-                        {cat}
+                    {!loading && categories!.map((cat) => (
+                      <option key={cat.name} value={cat.name}>
+                        {cat.name}
                       </option>
                     ))}
                   </select>
@@ -193,3 +152,20 @@ export default function Hero({
     </section>
   );
 }
+
+const TypedText = memo(() => {
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language || "es";
+  const termsList = useMemo(
+    () => (currentLang === "es" ? TYPING_TERMS : TYPING_TERMS_EN),
+    [currentLang],
+  );
+  const { typedText } = useWriteDeleteEffect(termsList);
+
+  return (
+    <span className="relative text-white font-semibold">
+      {typedText}
+      <span className="absolute -right-1 bottom-1 w-0.5 h-5 bg-white animate-pulse" aria-hidden="true" />
+    </span>
+  );
+});
